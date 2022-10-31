@@ -2,7 +2,7 @@ import React from "react";
 
 const PeticionApi = () => {
     const [personajes, setPersonajes] = React.useState([]);
-    const [paginacion, setPaginacion] = React.useState(1);
+    //const [paginacion, setPaginacion] = React.useState(1);
     
     const getPersonajes = async() =>{
         try{
@@ -20,7 +20,7 @@ const PeticionApi = () => {
             {
                 personajes.map((resultado) =>(
                     <div>
-                        <img src={resultado.picture.large}/>
+                        <img src={resultado.picture.large} alt="Foto persona"/>
                         <h4>{resultado.name.first} {resultado.name.last}</h4>
                         <h4> Genero: {resultado.gender}</h4>
                         <h4> Pais: {resultado.location.country}</h4>
