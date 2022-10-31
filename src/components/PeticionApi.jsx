@@ -1,46 +1,59 @@
 import React from "react";
+import './Card.css'
 
 const PeticionApi = () => {
-    const [personajes, setPersonajes] = React.useState([]);
+    const [personas, setPersonas] = React.useState([]);
     const [paginacion, setPaginacion] = React.useState(1);
     
-    const getPersonajes = async() =>{
+    const getPersonas = async() =>{
         try{
-            const res = await fetch(`https://randomuser.me/api/?page=${paginacion}`);
+            const res = await fetch(`https://randomuser.me/api/?page=${paginacion}&results=1&seed=abc`);
             const {results} = await res.json();
-            setPersonajes(results);
+            setPersonas(results);
         }catch(error){
             console.log(error);
         }
+        
     }
-
     const siguiente = async () =>{
         await setPaginacion(paginacion + 1);
-        getPersonajes();
+        getPersonas();
     }
 
     const atras = async () =>{
         await setPaginacion(paginacion - 1)
-        getPersonajes();
+        getPersonas();
     }
+
     return (
-        <div>
-            <h1>PETICION API</h1>
-            <button onClick={getPersonajes}>Traer Personajes</button>
+        <div class="container">
+            <h1>PETICIÓN API</h1>
+            <button onClick={getPersonas}>Traer Personas</button>
             <button onClick={siguiente}>Siguiente</button>
-            <button onClick={atras}>Atras</button>
+            <button onClick={atras}>Atrás</button>
             {
-                personajes.map((resultado) =>(
-                    <div>
-                        <img src={resultado.picture.large} alt="Foto persona"/>
-                        <h4>{resultado.name.first} {resultado.name.last}</h4>
-                        <h4> Genero: {resultado.gender}</h4>
-                        <h4> Pais: {resultado.location.country}</h4>
+                personas.map((resultado) =>(
+                    <div class="card">
+                        <div class="card-up">
+                            <div class="card-img">
+                            <img src={resultado.picture.large} alt="Foto persona"/>
+                        </div>
+                        </div>
+                        <div class="card-name">
+                            <h4>{resultado.name.first} {resultado.name.last}</h4>
+                        </div>
+                        <div class="card-gender">
+                            <h4> Gender: {resultado.gender}</h4>
+                        </div>
+                        <div class="card-country">
+                            <h4> Country: {resultado.location.country}</h4>
+                        </div>
                     </div>
                 ))
             }
         </div>
     )
+    
 }
 
 export default PeticionApi

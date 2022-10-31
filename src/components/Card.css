@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container h1{
+    color: blue;
+    text-align: center;
+    font-size: 50px;
+}
+
+#traer{
+    margin-top: 20px;
+    margin-left: 35%;
+}
+
+.card{
+    width: 300px;
+    height: 440px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px 1px black;
+    margin-top: 30px;
+}
+
+.card-up{
+    height: 100px;
+    background: blue;
+}
+
+.card-img img{
+    background: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    padding: 5px;
+    transform: translate(95px,45px);
+}
+
+img{
+    border: 2px solid purple;
+}
+
+.card-name h4{
+    color: black;
+    text-align: center;
+    margin-top: 80px;
+    font-size: 25px;
+}
+
+.card-gender h4{
+    color: black;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card-country h4{
+    color: black;
+    margin-top: 18px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.back{
+    margin-top: 80px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.next{
+    margin-top: 80px;
+    display: inline-block;
+    margin-left: 200px;
+}
