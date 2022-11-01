@@ -26,27 +26,34 @@ const PeticionApi = () => {
     }
 
     return (
-        <div class="container">
+        <div className="container">
             <h1>PETICIÓN API</h1>
-            <button onClick={getPersonas}>Traer Personas</button>
-            <button onClick={siguiente}>Siguiente</button>
-            <button onClick={atras}>Atrás</button>
+            <div className="btn-per">
+                <button className="btn" onClick={getPersonas}>Traer Personas</button>
+            </div>
             {
                 personas.map((resultado) =>(
-                    <div class="card">
-                        <div class="card-up">
-                            <div class="card-img">
+                    <div className="card" key={resultado.id}>
+                        <div className="card-up">
+                            <div className="card-img">
                             <img src={resultado.picture.large} alt="Foto persona"/>
                         </div>
                         </div>
-                        <div class="card-name">
+                        <div className="card-name">
                             <h4>{resultado.name.first} {resultado.name.last}</h4>
                         </div>
-                        <div class="card-gender">
+                        <div className="card-gender">
                             <h4> Gender: {resultado.gender}</h4>
                         </div>
-                        <div class="card-country">
+                        <div className="card-country">
                             <h4> Country: {resultado.location.country}</h4>
+                        </div>
+                        <div className="card-contact">
+                            <h4> Contact: {resultado.phone}</h4>
+                        </div>
+                        <div className="btn-np">
+                            <button className="btn" onClick={atras}>Previus</button>
+                            <button className="btn" onClick={siguiente}>Next</button>
                         </div>
                     </div>
                 ))
